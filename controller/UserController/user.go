@@ -9,16 +9,27 @@
 package UserController
 
 import (
-	"cea_api/pkg/app"
-	"cea_api/pkg/e"
-	"cea_api/pkg/jwt"
-	"cea_api/service"
-	"cea_api/service/UserServer"
 	"github.com/gin-gonic/gin"
+	"miniProgram_server/pkg/app"
+	"miniProgram_server/pkg/e"
+	"miniProgram_server/pkg/jwt"
+	"miniProgram_server/service"
+	"miniProgram_server/service/UserServer"
 	"net/http"
 )
 
-// GetVerCode 获取验证码
+//	@BasePath	/api/v1
+
+// GetVerCode PingExample godoc
+//
+//	@Summary	ping example
+//	@Schemes
+//	@Description	直接请求即可,会返回验证码base64编码和验证码ID验证时需要将ID传给后端
+//	@Tags			获取验证码
+//	@Accept			json
+//	@Produce		json
+//	@Success		200
+//	@Router			/user/get_vercode [get]
 func GetVerCode(c *gin.Context) {
 	app := app.Gin{c}
 	res := service.GetCaptcha()

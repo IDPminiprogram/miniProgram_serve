@@ -9,8 +9,8 @@
 package app
 
 import (
-	"cea_api/pkg/e"
 	"github.com/gin-gonic/gin"
+	"miniProgram_server/pkg/e"
 )
 
 type Gin struct {

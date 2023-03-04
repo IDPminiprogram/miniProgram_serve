@@ -9,11 +9,11 @@
 package UnitsController
 
 import (
-	"cea_api/models"
-	"cea_api/pkg/app"
-	"cea_api/pkg/e"
-	"cea_api/service/UnitsServer"
 	"github.com/gin-gonic/gin"
+	"miniProgram_server/models"
+	"miniProgram_server/pkg/app"
+	"miniProgram_server/pkg/e"
+	"miniProgram_server/service/UnitsServer"
 	"net/http"
 )
 

@@ -1,0 +1,22 @@
+host: 127.0.0.1:8899
+info:
+  contact:
+    email: 1994975650@qq.com
+    name: 戈亓
+  title: 小程序后端和部分管理系统接囗文档
+  version: "1.0"
+paths:
+  /user/get_vercode:
+    get:
+      consumes:
+      - application/json
+      description: 直接请求即可,会返回验证码base64编码和验证码ID验证时需要将ID传给后端
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: ping example
+      tags:
+      - 获取验证码
+swagger: "2.0"

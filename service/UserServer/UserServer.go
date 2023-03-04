@@ -9,10 +9,10 @@
 package UserServer
 
 import (
-	"cea_api/models"
-	"cea_api/pkg/jwt"
-	"cea_api/service/UnitsServer"
 	"fmt"
+	"miniProgram_server/models"
+	"miniProgram_server/pkg/jwt"
+	"miniProgram_server/service/UnitsServer"
 	"strconv"
 )
 

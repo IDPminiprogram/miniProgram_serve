@@ -9,7 +9,7 @@
 package models
 
 import (
-	"cea_api/pkg/jwt"
+	"miniProgram_server/pkg/jwt"
 )
 
 type User struct {

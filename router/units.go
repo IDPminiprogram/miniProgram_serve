@@ -9,8 +9,8 @@
 package router
 
 import (
-	"cea_api/controller/UnitsController"
 	"github.com/gin-gonic/gin"
+	"miniProgram_server/controller/UnitsController"
 )
 
 func UnitrsRouters(r *gin.Engine) {

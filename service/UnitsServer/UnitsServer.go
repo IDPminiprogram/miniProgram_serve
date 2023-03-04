@@ -8,7 +8,7 @@
 
 package UnitsServer
 
-import "cea_api/models"
+import "miniProgram_server/models"
 
 type Unit struct {
 	Unit string
