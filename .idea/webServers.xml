@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7d299b48-19b4-4886-bd03-17bf6622027e" name="miniProgram">
+        <fileTransfer accessType="SFTP" host="49.233.49.23" port="22" sshConfigId="604be353-0ef3-477e-9aa0-90b8f7ab946e" sshConfig="ubuntu@49.233.49.23:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
