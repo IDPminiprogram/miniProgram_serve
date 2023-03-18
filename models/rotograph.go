@@ -1,9 +1,9 @@
 package models
 
 type RotoGrph struct {
-	SwiperID       int    `gorm:"column:id"`
+	SwiperID       int    `gorm:"column:swiper_id"`
 	SwiperName     string `gorm:"column:swiper_name"`
-	SwiperImageUrl string `gorm:"column:swiper_image"`
+	SwiperImageUrl string `gorm:"column:swiper_image_url"`
 	SwiperjumpUrl  string `gorm:"column:swiper_jump"`
 	Swiperdesc     string `gorm:"column:swiper_desc"`
 }
@@ -20,6 +20,8 @@ func AddRotoGraph(swiperName, swiperImnageUrl, swiperJumpurl, swiperDesc string)
 	}
 	return true
 }
+
+// DelRotoGraph 删除轮播图
 func DelRotoGraph(swiperid string) bool {
 	result := DB.Where("id = ?", swiperid).Delete(&RotoGrph{})
 	if result.Error != nil {
@@ -27,6 +29,8 @@ func DelRotoGraph(swiperid string) bool {
 	}
 	return true
 }
+
+// GetRotoGraph 获取轮播图数据
 func GetRotoGraph() []RotoGrph {
 	var rotos []RotoGrph
 	DB.Find(&rotos)
