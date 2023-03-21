@@ -18,7 +18,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/user/get_vercode": {
+        "/UserController/get_vercode": {
             "get": {
                 "description": "直接请求即可,会返回验证码base64编码和验证码ID验证时需要将ID传给后端",
                 "consumes": [

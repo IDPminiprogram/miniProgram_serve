@@ -11,6 +11,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"miniProgram_server/controller/RotoController"
+	"miniProgram_server/controller/UserController"
 )
 
 func ServerRoutes(r *gin.Engine) {
@@ -19,5 +20,7 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.GET("/getPhotograph", RotoController.GetRotograph)
 		ServerRouter.POST("/addPhotograph", RotoController.AddRotograph)
 		ServerRouter.DELETE("/delPhotograph", RotoController.DelRotograph)
+		ServerRouter.GET("/getUser", UserController.GetUser)
+		ServerRouter.DELETE("/delUser", UserController.DelUser)
 	}
 }

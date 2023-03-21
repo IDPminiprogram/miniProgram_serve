@@ -15,7 +15,7 @@ import (
 // @Accept			json
 // @Produce		json
 // @Success		200
-// @Router			/user/addrotograph [post]
+// @Router			/UserController/addrotograph [post]
 func AddRotograph(c *gin.Context) {
 	app := app.Gin{C: c}
 	swiperName := c.Query("name")
@@ -38,7 +38,7 @@ func AddRotograph(c *gin.Context) {
 // @Accept		json
 // @Produce		json
 // @Success		200
-// @Router			/user/delrotograph [delete]
+// @Router			/UserController/delrotograph [delete]
 func DelRotograph(c *gin.Context) {
 	app := app.Gin{C: c}
 	id := c.Query("id")
@@ -54,11 +54,11 @@ func DelRotograph(c *gin.Context) {
 // @Summary	ping example
 // @Schemes
 // @Description
-// @Tags			添加轮播图
+// @Tags			获取轮播图
 // @Accept			json
 // @Produce		json
 // @Success		200
-// @Router			/user/addrotograph [post]
+// @Router			/UserController/addrotograph [post]
 func GetRotograph(c *gin.Context) {
 	app := app.Gin{C: c}
 	Rotostruct := &Rotogaph.Rotograph{}
