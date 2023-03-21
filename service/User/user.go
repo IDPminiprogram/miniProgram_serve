@@ -14,3 +14,11 @@ func (p *Page) GetUser() []models.User {
 func DelUser(id int) bool {
 	return models.DelUser(id)
 }
+
+func AllowUser(id, allow int) bool {
+	return models.AllowUser(id, allow)
+}
+
+func SearchUser(name string) []models.User {
+	return models.SearchUser(name)
+}

@@ -22,5 +22,7 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.DELETE("/delPhotograph", RotoController.DelRotograph)
 		ServerRouter.GET("/getUser", UserController.GetUser)
 		ServerRouter.DELETE("/delUser", UserController.DelUser)
+		ServerRouter.POST("/allowUser", UserController.AllowUser)
+		ServerRouter.GET("/searchUser", UserController.SearchUser)
 	}
 }
