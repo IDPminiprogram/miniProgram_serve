@@ -25,3 +25,12 @@ func (g *Gin) Response(HttpCode, ErrCode int, data interface{}) {
 	})
 
 }
+func (g *Gin) CountResponse(HttpCode, ErrCode int, data interface{}, count int) {
+	g.C.JSON(HttpCode, gin.H{
+		"code":  ErrCode,
+		"msg":   e.GetMsg(ErrCode),
+		"data":  data,
+		"count": count,
+	})
+
+}

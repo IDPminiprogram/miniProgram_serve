@@ -12,6 +12,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"miniProgram_server/controller/NoticeController"
 	"miniProgram_server/controller/RotoController"
+	"miniProgram_server/controller/ShopController"
 	"miniProgram_server/controller/UserController"
 )
 
@@ -30,5 +31,11 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.GET("/getNotice", NoticeController.GetNotice)
 		ServerRouter.POST("/addNotice", NoticeController.AddNotice)
 		ServerRouter.DELETE("/delNotice", NoticeController.DelNotice)
+
+		ServerRouter.GET("/getShop", ShopController.GetShop)
+		ServerRouter.POST("/addShop", ShopController.AddShop)
+		ServerRouter.DELETE("/delShop", ShopController.DelShop)
+		ServerRouter.GET("/searchShop", ShopController.SearchShop)
+
 	}
 }

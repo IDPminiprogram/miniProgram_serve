@@ -7,7 +7,7 @@ type Page struct {
 	PageSize int
 }
 
-func (p *Page) GetUser() []models.User {
+func (p *Page) GetUser() (user []models.User, count int) {
 	return models.GetUser(p.PageSize, p.PageNum)
 }
 

@@ -20,11 +20,13 @@ func (u *User) TableName() string {
 }
 
 // GetUser 获取用户列表
-func GetUser(NumPage, NumSize int) []User {
-	NumPage = NumPage*NumSize - NumSize
+func GetUser(NumPage, NumSize int) (user []User, count int) {
 	var u []User
+	NumPage = NumPage*NumSize - NumSize
 	DB.Limit(NumSize).Offset(NumPage).Find(&u)
-	return u
+	result := DB.Find(&User{})
+	count = int(result.RowsAffected)
+	return u, count
 }
 
 func DelUser(id int) bool {

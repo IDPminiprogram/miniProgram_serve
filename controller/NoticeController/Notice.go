@@ -12,7 +12,7 @@ import (
 // @Summary	ping example
 // @Schemes
 // @Description
-// @Tags			添加轮播图
+// @Tags			添加
 // @Accept			json
 // @Produce		json
 // @Success		200
@@ -29,7 +29,7 @@ func AddNotice(c *gin.Context) {
 // @Summary	ping example
 // @Schemes
 // @Description
-// @Tags		删除轮播图
+// @Tags		删除
 // @Accept		json
 // @Produce		json
 // @Success		200
@@ -46,7 +46,7 @@ func DelNotice(c *gin.Context) {
 // @Summary	ping example
 // @Schemes
 // @Description
-// @Tags			获取轮播图
+// @Tags			获取
 // @Accept			json
 // @Produce		json
 // @Success		200
