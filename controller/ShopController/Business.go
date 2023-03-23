@@ -39,7 +39,7 @@ func AddShop(c *gin.Context) {
 	app := app.Gin{C: c}
 	shopName := c.Query("shop_name")
 	shopIntro := c.Query("shop_intro")
-	shopPhone, _ := strconv.Atoi(c.Query("shop_phone"))
+	shopPhone := c.Query("shop_phone")
 	shopAvatar := c.Query("shop_avatar")
 	shopLatitude := c.Query("shop_latitude")
 	shopLongitude := c.Query("shop_longitude")

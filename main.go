@@ -26,10 +26,6 @@ func main() {
 	r := gin.Default()
 	r.Use(middlewares.Cors())
 	router.ServerRoutes(r)
-	//r.GET("/", func(context *gin.Context) {
-	//	app := app.Gin{context}
-	//	app.Response(200, e.Success, "请求成功")
-	//})
 	r.GET("/swagger/*any", func(c *gin.Context) {
 		ginSwagger.DisablingWrapHandler(swaggerFiles.Handler, "SWAGGER")(c)
 	})

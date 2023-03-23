@@ -1,7 +1,6 @@
 package models
 
 import (
-	"strconv"
 	"time"
 )
 
@@ -20,11 +19,17 @@ func (s *Shop) TableName() string {
 	return "mango_shop"
 }
 
-func AddShop(shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude string, shopPhone int) bool {
+func AddShop(shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude, shopPhone string) bool {
 	createTime := time.Now()
 	//fmt.Println(shopName, shopIntro, shopPhone, shopAvatar, shopLatitude, shopLongitude)
-	shopPhones := strconv.Itoa(shopPhone)
-	result := DB.Create(&Shop{ShopName: shopName, ShopIntro: shopIntro, shopPhone: shopPhones, shopAvatar: shopAvatar, shopLatitude: shopLatitude, shopLongitude: shopLongitude, ShopCreatTime: createTime})
+	result := DB.Create(&Shop{
+		ShopName:      shopName,
+		ShopIntro:     shopIntro,
+		shopPhone:     shopPhone,
+		shopAvatar:    shopAvatar,
+		shopLatitude:  shopLatitude,
+		shopLongitude: shopLongitude,
+		ShopCreatTime: createTime})
 	if result.Error != nil {
 		return false
 	}
