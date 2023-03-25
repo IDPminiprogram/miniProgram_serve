@@ -34,16 +34,17 @@ func GetShop(c *gin.Context) {
 // @Accept			json
 // @Produce		json
 // @Success		200
-// @Router			/UserController/addrotograph [post]
+// @Router			/ShopController/AddShop [post]
 func AddShop(c *gin.Context) {
 	app := app.Gin{C: c}
+	id, _ := strconv.Atoi(c.Query("id"))
 	shopName := c.Query("shop_name")
 	shopIntro := c.Query("shop_intro")
 	shopPhone := c.Query("shop_phone")
 	shopAvatar := c.Query("shop_avatar")
 	shopLatitude := c.Query("shop_latitude")
 	shopLongitude := c.Query("shop_longitude")
-	res := Shop.AddShop(shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude, shopPhone)
+	res := Shop.AddShop(id, shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude, shopPhone)
 	if res == true {
 		app.Response(http.StatusOK, e.Success, nil)
 	}

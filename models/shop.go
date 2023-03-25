@@ -1,40 +1,57 @@
 package models
 
 import (
+	"fmt"
 	"time"
 )
 
 type Shop struct {
-	ShopID        int       `gorm:"column:shop_id"`
-	ShopName      string    `gorm:"column:shop_name"`
-	ShopIntro     string    `gorm:"column:shop_intro"`
-	shopPhone     string    `gorm:"column:shop_phone"`
-	shopAvatar    string    `gorm:"column:shop_avatar"`
-	shopLatitude  string    `gorm:"column:shop_latitude"`
-	shopLongitude string    `gorm:"column:shop_longitude"`
-	ShopCreatTime time.Time `gorm:"column:shop_creat_time"`
+	ShopID          int       `gorm:"column:shop_id"`
+	ShopName        string    `gorm:"column:shop_name"`
+	ShopIntro       string    `gorm:"column:shop_intro"`
+	shopPhoneNumber string    `gorm:"column:shop_phone"`
+	shopAvatar      string    `gorm:"column:shop_avatar"`
+	shopLatitude    string    `gorm:"column:shop_latitude"`
+	shopLongitude   string    `gorm:"column:shop_longitude"`
+	ShopCreatTime   time.Time `gorm:"column:shop_creat_time"`
 }
 
 func (s *Shop) TableName() string {
 	return "mango_shop"
 }
 
-func AddShop(shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude, shopPhone string) bool {
+func AddShop(id int, shopName, shopIntro, shopAvatar, shopLatitude, shopLongitude, shopPhone string) bool {
 	createTime := time.Now()
-	//fmt.Println(shopName, shopIntro, shopPhone, shopAvatar, shopLatitude, shopLongitude)
-	result := DB.Create(&Shop{
-		ShopName:      shopName,
-		ShopIntro:     shopIntro,
-		shopPhone:     shopPhone,
-		shopAvatar:    shopAvatar,
-		shopLatitude:  shopLatitude,
-		shopLongitude: shopLongitude,
-		ShopCreatTime: createTime})
-	if result.Error != nil {
-		return false
+	if id > 0 {
+		shops := Shop{
+			ShopName:        shopName,
+			ShopIntro:       shopIntro,
+			ShopCreatTime:   createTime,
+			shopPhoneNumber: shopPhone,
+			shopAvatar:      shopAvatar,
+			shopLatitude:    shopLatitude,
+			shopLongitude:   shopLongitude,
+		}
+		DB.Model(&Shop{}).Where("shop_id = ?", id).Updates(&shops)
+	} else {
+		fmt.Println(shopName, shopIntro, shopPhone, shopAvatar, shopLatitude, shopLongitude)
+		shops := Shop{
+			ShopName:        shopName,
+			ShopIntro:       shopIntro,
+			ShopCreatTime:   createTime,
+			shopPhoneNumber: shopPhone,
+			shopAvatar:      shopAvatar,
+			shopLatitude:    shopLatitude,
+			shopLongitude:   shopLongitude,
+		}
+		fmt.Println(shops)
+		result := DB.Create(&shops)
+		if result.Error != nil {
+			return false
+		}
+		return true
 	}
 	return true
-
 }
 
 func SearchShop(name string) []Shop {
