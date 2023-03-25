@@ -37,5 +37,10 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.DELETE("/delShop", ShopController.DelShop)
 		ServerRouter.GET("/searchShop", ShopController.SearchShop)
 
+		ServerRouter.POST("/addBusiness", ShopController.AddBusiness)
+		ServerRouter.GET("/getBusiness", ShopController.GetBusiness)
+		ServerRouter.DELETE("/delBusiness", ShopController.DelBusiness)
+		ServerRouter.GET("/searchBusiness", ShopController.SearchBusiness)
+
 	}
 }

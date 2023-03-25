@@ -9,10 +9,10 @@ type Shop struct {
 	ShopID          int       `gorm:"column:shop_id"`
 	ShopName        string    `gorm:"column:shop_name"`
 	ShopIntro       string    `gorm:"column:shop_intro"`
-	shopPhoneNumber string    `gorm:"column:shop_phone"`
-	shopAvatar      string    `gorm:"column:shop_avatar"`
-	shopLatitude    string    `gorm:"column:shop_latitude"`
-	shopLongitude   string    `gorm:"column:shop_longitude"`
+	ShopPhoneNumber string    `gorm:"column:shop_phone"`
+	ShopAvatar      string    `gorm:"column:shop_avatar"`
+	ShopLatitude    string    `gorm:"column:shop_latitude"`
+	ShopLongitude   string    `gorm:"column:shop_longitude"`
 	ShopCreatTime   time.Time `gorm:"column:shop_creat_time"`
 }
 
@@ -27,10 +27,10 @@ func AddShop(id int, shopName, shopIntro, shopAvatar, shopLatitude, shopLongitud
 			ShopName:        shopName,
 			ShopIntro:       shopIntro,
 			ShopCreatTime:   createTime,
-			shopPhoneNumber: shopPhone,
-			shopAvatar:      shopAvatar,
-			shopLatitude:    shopLatitude,
-			shopLongitude:   shopLongitude,
+			ShopPhoneNumber: shopPhone,
+			ShopAvatar:      shopAvatar,
+			ShopLatitude:    shopLatitude,
+			ShopLongitude:   shopLongitude,
 		}
 		DB.Model(&Shop{}).Where("shop_id = ?", id).Updates(&shops)
 	} else {
@@ -39,10 +39,10 @@ func AddShop(id int, shopName, shopIntro, shopAvatar, shopLatitude, shopLongitud
 			ShopName:        shopName,
 			ShopIntro:       shopIntro,
 			ShopCreatTime:   createTime,
-			shopPhoneNumber: shopPhone,
-			shopAvatar:      shopAvatar,
-			shopLatitude:    shopLatitude,
-			shopLongitude:   shopLongitude,
+			ShopPhoneNumber: shopPhone,
+			ShopAvatar:      shopAvatar,
+			ShopLatitude:    shopLatitude,
+			ShopLongitude:   shopLongitude,
 		}
 		fmt.Println(shops)
 		result := DB.Create(&shops)
