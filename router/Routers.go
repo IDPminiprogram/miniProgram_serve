@@ -10,6 +10,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"miniProgram_server/controller/Message"
 	"miniProgram_server/controller/NoticeController"
 	"miniProgram_server/controller/RotoController"
 	"miniProgram_server/controller/ShopController"
@@ -41,6 +42,10 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.GET("/getBusiness", ShopController.GetBusiness)
 		ServerRouter.DELETE("/delBusiness", ShopController.DelBusiness)
 		ServerRouter.GET("/searchBusiness", ShopController.SearchBusiness)
+
+		ServerRouter.GET("/getMessage", Message.GetMessage)
+		ServerRouter.DELETE("/delMessage", Message.DelMessage)
+		//ServerRouter.GET("/searchMessage", Message.SearchBusiness)
 
 	}
 }

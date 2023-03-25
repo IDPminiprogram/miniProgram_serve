@@ -58,8 +58,9 @@ func SearchBusiness(name string) []Business {
 func GetBusiness(id, NumSize, NumPage int) (shop []Business, count int) {
 	NumPage = NumPage*NumSize - NumSize
 	var s []Business
+	var b []Business
 	DB.Limit(NumSize).Offset(NumPage).Where("shop_id = ?", id).Find(&s)
-	result := DB.Where("shop_id = ?", id).Find(&s)
+	result := DB.Where("shop_id = ?", id).Find(&b)
 	count = int(result.RowsAffected)
 	return s, count
 }
