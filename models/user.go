@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -24,8 +25,10 @@ func GetUser(NumPage, NumSize int) (user []User, count int) {
 	var u []User
 	NumPage = NumPage*NumSize - NumSize
 	DB.Limit(NumSize).Offset(NumPage).Find(&u)
-	result := DB.Find(&User{})
+	result := DB.Find(&[]User{})
 	count = int(result.RowsAffected)
+	fmt.Println(count)
+	//fmt.Println(result.RowsAffected)
 	return u, count
 }
 
@@ -38,7 +41,7 @@ func DelUser(id int) bool {
 }
 
 func AllowUser(id, allow int) bool {
-	result := DB.Model(&User{}).Where("user_id = ?", id).Update("user_allow", allow)
+	result := DB.Model(&User{}).Where("user_id = ?", id).Update("user_is_admin", allow)
 	if result.Error != nil {
 		return false
 	}

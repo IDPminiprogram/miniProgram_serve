@@ -1,6 +1,7 @@
 package UserController
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"miniProgram_server/pkg/app"
 	"miniProgram_server/pkg/e"
@@ -19,12 +20,12 @@ import (
 // @Router			/getUser/GetUser [GET]
 func GetUser(c *gin.Context) {
 	app := app.Gin{C: c}
-	pageNum, _ := strconv.Atoi(c.Query("pageNum"))
+	pageNum, _ := strconv.Atoi(c.Query("page"))
 	pageSize, _ := strconv.Atoi(c.Query("pageSize"))
 	getData := &User.Page{PageNum: pageNum, PageSize: pageSize}
-	user, conut := getData.GetUser()
+	user, count := getData.GetUser()
 	if user != nil {
-		app.CountResponse(http.StatusOK, e.Success, user, conut)
+		app.CountResponse(http.StatusOK, e.Success, user, count)
 	}
 }
 
@@ -56,7 +57,7 @@ func DelUser(c *gin.Context) {
 func AllowUser(c *gin.Context) {
 	app := app.Gin{C: c}
 	id, _ := strconv.Atoi(c.Query("id"))
-	allow, _ := strconv.Atoi(c.Query("allow"))
+	allow, _ := strconv.Atoi(c.Query("userIsAdmin"))
 	res := User.AllowUser(id, allow)
 	if res == true {
 		app.Response(http.StatusOK, e.Success, res)
@@ -74,6 +75,7 @@ func AllowUser(c *gin.Context) {
 func SearchUser(c *gin.Context) {
 	app := app.Gin{C: c}
 	name := c.Query("name")
+	fmt.Println(name)
 	res := User.SearchUser(name)
 	app.Response(http.StatusOK, e.Success, res)
 }
