@@ -23,7 +23,7 @@ func AddRotoGraph(swiperName, swiperImnageUrl, swiperJumpurl, swiperDesc string)
 
 // DelRotoGraph 删除轮播图
 func DelRotoGraph(swiperid string) bool {
-	result := DB.Where("id = ?", swiperid).Delete(&RotoGrph{})
+	result := DB.Where("swiper_id = ?", swiperid).Delete(&RotoGrph{})
 	if result.Error != nil {
 		return false
 	}

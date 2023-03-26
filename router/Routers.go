@@ -47,6 +47,5 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.GET("/getMessage", Message.GetMessage)
 		ServerRouter.DELETE("/delMessage", Message.DelMessage)
 		//ServerRouter.GET("/searchMessage", Message.SearchBusiness)
-
 	}
 }

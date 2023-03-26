@@ -19,6 +19,21 @@ type Message struct {
 	MessageCreatTime time.Time `gorm:"column:message_creat_time"`
 }
 
+type Messageback struct {
+	MessageId        int
+	UserIdAnonymity  string
+	UserId           string
+	CategoryId       string
+	UserPhone        string
+	UserMajor        string
+	UserLevel        string
+	MessageDetail    string
+	MessageShare     int
+	MessageComment   int
+	MessageWatch     int
+	MessageCreatTime time.Time
+}
+
 func (m *Message) TableName() string {
 	return "mango_message"
 }
@@ -28,14 +43,14 @@ func GetMessage(NumSize, NumPage int, name string) (message []Message, count int
 		NumPage = NumPage*NumSize - NumSize
 		var m []Message
 		DB.Limit(NumSize).Offset(NumPage).Where("message_detail LIKE ?", name).Find(&m)
-		result := DB.Where("message_detail LIKE ?", name).Find(&Message{})
+		result := DB.Where("message_detail LIKE ?", name).Find(&[]Message{})
 		count = int(result.RowsAffected)
 		return m, count
 	} else {
 		NumPage = NumPage*NumSize - NumSize
 		var m []Message
 		DB.Limit(NumSize).Offset(NumPage).Find(&m)
-		result := DB.Find(&Message{})
+		result := DB.Find(&[]Message{})
 		count = int(result.RowsAffected)
 		return m, count
 	}
