@@ -47,6 +47,13 @@ func AllowUser(id, allow int) bool {
 	}
 	return true
 }
+func AllowRelease(id int, allow string) bool {
+	result := DB.Model(&User{}).Where("user_id = ?", id).Update("user_allow", allow)
+	if result.Error != nil {
+		return false
+	}
+	return true
+}
 
 func SearchUser(name string) []User {
 	var u []User

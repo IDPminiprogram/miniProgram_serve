@@ -64,7 +64,7 @@ func GetShop(NumSize, NumPage int) (shop []Shop, count int) {
 	NumPage = NumPage*NumSize - NumSize
 	var s []Shop
 	DB.Limit(NumSize).Offset(NumPage).Find(&s)
-	result := DB.Find(&Shop{})
+	result := DB.Find(&[]Shop{})
 	count = int(result.RowsAffected)
 	return s, count
 }

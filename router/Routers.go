@@ -28,6 +28,7 @@ func ServerRoutes(r *gin.Engine) {
 		ServerRouter.DELETE("/delUser", UserController.DelUser)
 		ServerRouter.POST("/allowUser", UserController.AllowUser)
 		ServerRouter.GET("/searchUser", UserController.SearchUser)
+		ServerRouter.POST("/allowRelease", UserController.AllowRelease)
 
 		ServerRouter.GET("/getNotice", NoticeController.GetNotice)
 		ServerRouter.POST("/addNotice", NoticeController.AddNotice)

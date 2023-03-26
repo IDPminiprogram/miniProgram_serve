@@ -22,3 +22,6 @@ func AllowUser(id, allow int) bool {
 func SearchUser(name string) []models.User {
 	return models.SearchUser(name)
 }
+func AllowRelease(id int, allow string) bool {
+	return models.AllowRelease(id, allow)
+}
