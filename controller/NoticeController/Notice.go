@@ -1,6 +1,7 @@
 package NoticeController
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"miniProgram_server/pkg/app"
 	"miniProgram_server/pkg/e"
@@ -20,6 +21,7 @@ import (
 func AddNotice(c *gin.Context) {
 	app := app.Gin{C: c}
 	noticeDetail := c.Query("noticeDetail")
+	fmt.Println(noticeDetail)
 	res := Notice.AddNotice(noticeDetail)
 	if res == true {
 		app.Response(http.StatusOK, e.Success, nil)
