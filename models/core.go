@@ -16,8 +16,8 @@ var DB *gorm.DB
 var err error
 
 func init() {
-	//dsn := "root:root@tcp(49.233.49.23:3306)/mongo?charset=utf8mb4&parseTime=True&loc=Local"
-	dsn := "root:root@tcp(152.136.123.49:3308)/mongo?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:123456@tcp(49.233.49.23:3307)/mongo?charset=utf8mb4&parseTime=True&loc=Local"
+	//dsn := "root:root@tcp(152.136.123.49:3308)/mongo?charset=utf8mb4&parseTime=True&loc=Local"
 	// dsn := "用户名:密码@tcp(数据库地址:端口号 默认是3306)/数据库名称?charset=utf8mb4&parseTime=True&loc=Local'
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
